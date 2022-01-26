@@ -1,0 +1,38 @@
+float temp; 
+float vout; //output of temp sensor 
+float vout1;//output of gas sensor
+int LED = 13; 
+int gasSensor; 
+int piezo = 4 ; 
+void setup() 
+{ 
+pinMode(A0,INPUT); 
+pinMode(A1, INPUT); 
+pinMode(LED,OUTPUT); 
+pinMode(piezo,OUTPUT); 
+Serial.begin(9600); // activation of serial monitor
+} 
+void loop() 
+{ 
+vout=analogRead(A1); 
+vout1=(vout/1023)*5000; 
+temp=(vout1-500)/10; //calculating temp
+gasSensor=analogRead(A0); 
+if (temp>=65) 
+{ 
+digitalWrite(LED,HIGH); 
+} 
+else 
+{ 
+digitalWrite(LED,LOW); 
+} 
+if (gasSensor>=100)
+{ 
+digitalWrite(piezo,HIGH); 
+} 
+else 
+{ 
+digitalWrite(piezo,LOW); 
+} 
+delay(1500); 
+}
