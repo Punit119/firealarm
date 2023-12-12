@@ -10,7 +10,7 @@ pinMode(A0,INPUT);
 pinMode(A1, INPUT); 
 pinMode(LED,OUTPUT); 
 pinMode(piezo,OUTPUT); 
-Serial.begin(9600); // activation of serial monitor
+ // activation of serial monitor
 } 
 void loop() 
 { 
